@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Discover modern streetwear, oversized hoodies and jackets at FORME.">
+  <title>FORME. — Built for the Bold</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">FREE SHIPPING ON ORDERS OVER EGP 2,000</div>
+
+  <header class="header">
+    <a class="logo" href="#">FORME<span>.</span></a>
+
+    <nav class="nav" id="main-nav">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our story</a>
+    </nav>
+
+    <button class="bag-button" id="open-cart" aria-label="Open shopping bag">
+      BAG (<span id="cart-count">0</span>)
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-meta">
+        <span>INDEPENDENT STREETWEAR</span>
+        <span>COLLECTION 001 / 2026</span>
+      </div>
+
+      <h1>BUILT FOR<br><span>THE BOLD.</span></h1>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85"
+          alt="Contemporary streetwear collection"
+          fetchpriority="high"
+        >
+        <div class="hero-overlay">
+          <span class="outline-label">THE NEW UNIFORM / 001</span>
+          <div class="hero-copy">
+            <div>
+              <h2>Not made to blend in.</h2>
+              <p>Everyday essentials. Different by design.</p>
+            </div>
+            <a class="button button-accent" href="#shop">EXPLORE COLLECTION ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Brand statement">
+      LESS NOISE. MORE CHARACTER. / BUILT DIFFERENT. /
+      LESS NOISE. MORE CHARACTER. / BUILT DIFFERENT.
+    </div>
+
+    <section class="section" id="shop">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED FOR THE EVERYDAY</p>
+          <h2>Latest pieces<span>.</span></h2>
+        </div>
+        <span class="item-count" id="item-count">04 PIECES</span>
+      </div>
+
+      <div class="collection-tabs" aria-label="Product collections">
+        <button class="collection-btn active" data-collection="all">ALL PIECES</button>
+        <button class="collection-btn" data-collection="sale">ON SALE</button>
+        <button class="collection-btn" data-collection="bestsellers">BEST SELLERS</button>
+        <button class="collection-btn" data-collection="new">NEW ARRIVALS</button>
+        <button class="collection-btn" data-collection="wishlist">
+          WISHLIST <span id="wishlist-count">0</span>
+        </button>
+      </div>
+
+      <div class="filters" aria-label="Filter products by category">
+        <button class="filter-btn active" data-filter="all">All pieces</button>
+        <button class="filter-btn" data-filter="hoodie">Hoodies</button>
+        <button class="filter-btn" data-filter="jacket">Jackets</button>
+      </div>
+
+      <div class="products" id="products" aria-live="polite"></div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-image">
+        <img
+          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85"
+          alt="Streetwear editorial campaign"
+          loading="lazy"
+        >
+      </div>
+      <div class="story-content">
+        <p class="eyebrow">OUR POINT OF VIEW</p>
+        <h2>Wear your<br>own rules.</h2>
+        <p>
+          Less about trends. More about identity.
+          Everyday essentials designed to move with you.
+          This is your uniform.
+        </p>
+        <a href="#shop" class="button button-dark">DISCOVER THE COLLECTION ↗</a>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <p class="eyebrow">STAY IN THE LOOP</p>
+      <h2>First to know<span>.</span></h2>
+      <p>New drops, limited pieces, and nothing unnecessary.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Your email address" required aria-label="Your email address">
+        <button type="submit">SIGN ME UP ↗</button>
+      </form>
+      <p class="form-message" id="newsletter-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#">FORME<span>.</span></a>
+    <p>Independent by design. © <span id="year"></span> FORME.</p>
+    <a href="#">BACK TO TOP ↑</a>
+  </footer>
+
+  <!-- Product details dialog -->
+  <dialog class="dialog" id="product-dialog" aria-label="Product details">
+    <button class="close-button" id="close-product" aria-label="Close">✕</button>
+    <div id="product-detail"></div>
+  </dialog>
+
+  <!-- Shopping cart drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-header">
+      <h2>Your bag <span id="drawer-count">(0)</span></h2>
+      <button class="close-button" id="close-cart" aria-label="Close bag">✕</button>
+    </div>
+
+    <div class="cart-items" id="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Subtotal</span>
+        <strong id="cart-total">EGP 0</strong>
+      </div>
+      <p>Shipping calculated at checkout.</p>
+      <button class="button button-dark checkout-button" id="checkout-button">
+        CONTINUE TO CHECKOUT ↗
+      </button>
+      <button class="continue-shopping" id="continue-shopping">Continue shopping</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
